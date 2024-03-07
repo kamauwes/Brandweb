@@ -13,7 +13,7 @@ namespace User.Data
         public DbSet<OrderDetails> orderDetails { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Stock> Stocks { get; set; }
+       // public DbSet<Stock> Stocks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,12 @@ namespace User.Data
                 .WithOne(p => p.Product)
                 .HasForeignKey<Inventory>(p => p.ProductId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+              /*  entity.HasOne(a => a.Stock)
+               .WithOne(p => p.Product)
+               .HasForeignKey<Inventory>(p => p.ProductId)
+               .OnDelete(DeleteBehavior.NoAction);
+              */
             });
             modelBuilder.Entity<Order>(entity =>
             {

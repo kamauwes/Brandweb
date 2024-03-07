@@ -185,6 +185,29 @@ namespace Brandweb.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("Brandweb.Models.Domains.Stock", b =>
+                {
+                    b.Property<int>("StockId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StockId"));
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("StockId");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
+                    b.ToTable("Stocks");
+                });
+
             modelBuilder.Entity("Brandweb.Models.Domains.Inventory", b =>
                 {
                     b.HasOne("Brandweb.Models.Domains.Product", "Product")
@@ -226,6 +249,17 @@ namespace Brandweb.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Brandweb.Models.Domains.Stock", b =>
+                {
+                    b.HasOne("Brandweb.Models.Domains.Product", "Product")
+                        .WithOne("Stock")
+                        .HasForeignKey("Brandweb.Models.Domains.Stock", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Brandweb.Models.Domains.Customer", b =>
                 {
                     b.Navigation("Orders");
@@ -242,6 +276,9 @@ namespace Brandweb.Migrations
                         .IsRequired();
 
                     b.Navigation("OrderDetails");
+
+                    b.Navigation("Stock")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

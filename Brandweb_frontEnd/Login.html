@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Line</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <header>
+        <h1>WB</h1>
+        
+        <nav>
+            <a href="#">Home
+                <span class="material-symbols-outlined">
+                    home
+                    </span>
+            </a>
+            
+            <a href="#">Menu
+                <span class="material-symbols-outlined">
+                    menu
+                    </span>
+            </a>
+            <a href="#">Search
+                <span class="material-symbols-outlined">
+                    search
+                    </span>
+            </a>
+            <a href="#">Cart
+                <span class="material-symbols-outlined">
+                    shopping_bag
+                    </span>
+            </a>
+        </nav>
+    </header>
+    <div class="form_box">
+        <form class="login-form">
+            <h1>Login</h1>
+            <div class="input_box">
+                <input type="text" required>
+                <label >Email</label>
+                <span class="material-symbols-outlined">
+                    mail
+                    </span>
+            </div>
+            <div class="input_box">
+                <input type="password" required>
+                <label >Password</label>
+                <span class="material-symbols-outlined">
+                    lock
+                    </span>
+            </div>
+            <div class="CheckBox">
+                <span>
+                <input type="checkbox" id="Login-checkbox">
+                <label for="Remember-checkbox">Remember me?</label>
+                </span>
+                <h5>Forgot Password?</h5>
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+            <h5 class="Signup-btn">Don't have an account? Signup</h5>
+
+        </form>
+        <form class="Signup-form">
+                <h1>Sign up</h1>
+                <div class="input_box">
+                    <input type="text" required>
+                    <label >User Name</label>
+                    <span class="material-symbols-outlined">
+                        person
+                        </span>
+                </div>
+                <div class="input_box">
+                    <input type="text" required>
+                    <label >Email</label>
+                    <span class="material-symbols-outlined">
+                        mail
+                        </span>
+                </div>
+                <div class="input_box">
+                    <input type="password" required>
+                    <label >Password</label>
+                    <span class="material-symbols-outlined">
+                        lock
+                        </span>
+                </div>
+                <div class="input_box">
+                    <input type="password" required>
+                    <label >Confirm-Password</label>
+                    <span class="material-symbols-outlined">
+                        lock
+                        </span>
+                </div>  
+                <div class="CheckBox">
+                    <input type="checkbox" id="Signup-checkbox">
+                    <label for="Signup-checkbox">Accept Terms & Conditions?</label>
+                </div>
+                <button type="submit" class="submit-btn">Signup</button>
+                <h5 class="Login-btn">All ready have an account? Login</h5>
+            </form>
+    </div>
+    <link rel="stylesheet" href="login.js">
+</body>
+</html>

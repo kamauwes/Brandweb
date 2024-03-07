@@ -13,8 +13,7 @@ namespace Brandweb.Models.Domains
         public string? Product_Description { get; set; }
         public string? Product_Category { get; set; }
 
-        public int StockId { get; set; }
-        public Stock Stock { get; set; }
+        //public Stock Stock { get; set; }
 
         public Inventory Inventory { get; set; }
         public int InventoryId { get; set; }

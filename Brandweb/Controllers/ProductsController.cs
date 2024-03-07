@@ -62,7 +62,7 @@ namespace Brandweb.Controllers
 
             };
 
-            return Ok("User created");
+            return Ok("Product created");
         }
         // GET
         [HttpGet("{Id:int}")]
@@ -79,6 +79,7 @@ namespace Brandweb.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
+
             var products = usersDbContext.Products.ToList();
             return Ok(products);
         }

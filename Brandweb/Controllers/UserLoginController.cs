@@ -73,12 +73,7 @@ namespace Brandweb.Controllers
             {
                 return BadRequest("Password is Incorrect");
             }
-            /* if (use.VerifiedAt == null)
-             {
-                 return BadRequest("Not verified");
-             }
-            */
-
+           
             return Ok($"Welcome Back, {use.UserName} ,{use.Email} :");
 
         }

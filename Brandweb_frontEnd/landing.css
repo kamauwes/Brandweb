@@ -1,0 +1,266 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+    
+}
+
+body{
+   /*  background-image: url(thumbnails/andrew-le-F0ESt6-ggUQ-unsplash\(1\).jpg); */
+  /*   background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px -50px; */
+    background-color: antiquewhite;
+    display: flex;
+    overflow: hidden;
+    
+}
+header{
+    position: fixed;
+    background-image: url(thumbnails/raden-prasetya-EvjmSg1xurI-unsplash.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0Px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    font-size: 20px;
+    padding: 50px 60px;
+    color:whitesmoke;
+
+}
+header nav{
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+
+}
+header nav a {
+    color: burlywood;
+    text-decoration: none;
+    position: relative;
+}
+header nav a ::before{
+    content: "";
+    position: relative;
+    bottom: -5px;
+    left: 0;
+    background-color: navajowhite;
+    width: 100%;
+    height: 2.5px;
+    transition: .3s;
+}
+header nav a :hover::before{
+    width: 100%;
+}
+.title{
+    margin-top: 160px;
+    left: 2.5%;
+    position: absolute;
+}
+.product{
+        display: flex;
+        margin-top: 200px;
+        margin-left: 5%; 
+        position: fixed;
+        width:  97%;
+        height: 500px;
+       /*  background-position: center; */
+        background-size: 100%;
+        background-repeat: no-repeat;
+        backdrop-filter: blur(20px);
+        color:burlywood;
+        border-radius: 0px;
+      
+        overflow: hidden; 
+    
+}
+.p-image{
+        
+        position: relative;
+        width: 400px;
+        height: 450px;
+        backdrop-filter: blur(20px);
+        background-image: url(thumbnails/anthony-a-eT-ORmDdFgE-unsplash.jpg);
+        background-size: 90%;
+        background-position: center;
+        background-repeat: no-repeat;
+        backdrop-filter: blur(20px);
+        font-size: 20;
+        border-radius: 20px;
+        /* border: 2px solid violet; */
+        overflow: hidden; 
+    
+}
+.head{
+    left: 15%;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    width: 40%;
+    height: 50pv;
+    /* border: 2px solid violet; */
+    
+    
+}
+.sizes{
+    position: relative;
+    left: 410px;
+    width: 80%;
+    height: 200px;
+    position: fixed;
+    justify-content: right; 
+   /*  background-color: wheat;  */ 
+
+
+}
+.sizes form{
+    display: flex;
+    justify-content: center;
+    align-items:normal ;
+    flex-direction: column;
+    width: 80%;
+    height: 90%;
+    position:absolute;
+  
+}
+.sizes.btns{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+
+.quantity{
+    top: 220px;
+    left: 410px;
+    width: 80%;
+    height: 120px;
+    position: fixed;  
+ /*    background-color: wheat; */
+    overflow: hidden;
+
+}
+.quantity .btns{
+    display: flex;
+   
+}
+.quantity form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 90%;
+    position:absolute;
+  
+}
+.quantity-form .btns{
+    position: relative;
+    left: 28%;
+}
+.Cart{
+    top: 350px;
+    left: 410px;
+    width: 80%;
+    height: 100px;
+    position: fixed;  
+   /*  background-color: wheat; */
+    overflow: hidden;
+
+}
+.Cart form{
+   /*  top: 2%; */
+    display: flex;
+    
+    flex-direction: column;
+    width: 80%;
+    height: 90%;
+    position:absolute;
+  
+}
+.Cart-form .btns{
+    position: relative;
+    left: 20%;
+}
+
+.submit-btn{
+    padding: 12px;
+    margin: 12px;
+    height: 45Px;
+    width: 15%;
+    color: white;
+    background-color: black;
+    border: none;    
+    font-size: 80%;
+    font-family: Arial;
+}
+.submit-btn2{
+    
+    height: 30Px;
+    width: 30px;
+    margin: 5px;
+    color: black;
+    border: 0;
+    background-color: aquamarine;
+    font-size: 20px;
+    font-family: Arial;
+}
+.submit-btn3{
+    padding: 12px;
+    margin: 12px;
+    height: 60%;
+    width:  50%;
+    color: black;
+    background-color: gainsboro;
+    border: 2px solid black;    
+    font-size: 80%;
+    font-family: Arial;
+}
+
+.title2{
+    margin-top: 670px;
+    left: 2.5%;
+    position: absolute;
+    height: 20%;
+}
+.other-products{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 700px;
+    margin-left: 5%; 
+    position: fixed;
+    width:  97%;
+    height: 500px;
+   /*  background-position: center; */
+    background-size: 100%;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(20px);
+    color:burlywood;
+    border-radius: 0px;
+  
+    overflow: hidden; 
+
+}
+.image1{
+        
+    position: relative;
+    width: 400px;
+    height: 450px;
+    backdrop-filter: blur(20px);
+    background-image: url(thumbnails/anthony-a-eT-ORmDdFgE-unsplash.jpg);
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(20px);
+    font-size: 20;
+    border-radius: 20px;
+    /* border: 2px solid violet; */
+    overflow: hidden; 
+
+}

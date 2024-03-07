@@ -11,6 +11,6 @@ namespace Brandweb.Models.dto
         public int OrderId { get; set; }
 
         public int ProductId { get; set; }
-
+        public int DetailsId { get; internal set; }
     }
 }
