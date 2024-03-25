@@ -1,0 +1,62 @@
+<div class="Onsale-body">
+  <div class="col-3 prod-details" >
+      <h2>on Sale:</h2>
+      <img  src="/assets/products/image1.jpg" class="i-box float-start" alt="onSale" class="rounded">
+      <h4 class="card-text">ProductName:</h4>
+      <span class="price-item price-item"> $35.00 </span>
+  </div>
+  <div class="col-3 actions float-end">
+      <div class="sizeSelection-box">
+        <h2 class="size-title">Size</h2>
+   <div class="size-btns ">
+          <button type="button" class="btn btn-light mx-2" >Small</button>
+          <button type="button" class="btn btn-light " >Medium</button>
+          <button type="button" class="btn btn-light mx-2">Large</button>
+          <button type="button" class="btn btn-light ">X-Large</button>
+          <button type="button" class="btn btn-light mx-2">XX-Large</button>
+   </div>
+      <div class="cart-form">
+          <button type="button" class="cart btn btn-light "> Add to Cart </button>
+      </div>
+   </div>
+  </div>
+</div>
+<!--all products-->
+<div class="text">
+  <h2>Recomendations:</h2>
+</div>
+<div class="row">
+  <div class="col-3" *ngFor=" let product of productList ">
+    <div class="card" >
+      <img class="card-img-top" src={{product.product_Image}}  alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">{{product.product_Name}}</h4>
+        <p class="card-text">{{product.product_Description}}</p>
+        <p class="card-text">Category: {{product.product_Category}}</p>
+        <p class="card-text">Quantity: {{product.product_Quantity}}</p>
+        <h4 class="card-title text-success">{{product.productPrice}}</h4>
+        <!-- <a  class="btn btn-primary" (click)=" onEdit(product) "> edit </a> -->
+        <a  class="btn btn-danger mx-2"  (click)="onAdd(product)"> add </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="card" >
+      <img class="card-img-top" src="/assets/products/image12.jpg" alt="Card image">
+      <div class="card-body">
+        <p class="card-text">HeadWear</p>
+        <a href="#" class="btn btn-primary">See More</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="card" >
+      <img class="card-img-top" src="/assets/products/image14.jpg" alt="Card image">
+      <div class="card-body">
+        <p class="card-text">Casual wear </p>
+        <a href="#" class="btn btn-primary">See More</a>
+      </div>
+    </div>
+  </div>
+
+</div>

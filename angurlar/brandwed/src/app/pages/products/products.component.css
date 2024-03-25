@@ -1,0 +1,38 @@
+
+
+.row{
+
+/* 
+  padding-right: 20px; */
+  --bs-gutter-y: 1rem;
+
+}
+.card{
+  height: 100%;
+  width: 250px;
+}
+.card .side{
+  margin-right:0 !important;
+}
+.col-6.text-end{
+  text-align: left ! important;
+}
+.card-header_bg-primary{
+  background-color: lightblue;
+}
+.text-end{
+  justify-content: left;
+}
+.btn{
+  
+  float: right;
+
+}
+.edit .btn{
+  float: left;
+  
+}
+.delete{
+  
+}
+

@@ -1,6 +1,7 @@
 ﻿using Brandweb.Models.Domains;
 using Brandweb.Models.dto;
 using Brandweb.Models.Dto;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using User.Data;
 namespace Brandweb.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllowSpecificOrigin")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -62,7 +64,7 @@ namespace Brandweb.Controllers
 
             };
 
-            return Ok("Product created");
+            return Ok(productDto);
         }
         // GET
         [HttpGet("{Id:int}")]
@@ -76,7 +78,7 @@ namespace Brandweb.Controllers
             }
             return Ok(product);
         }
-        [HttpGet]
+        [HttpGet("products")]
         public IActionResult GetAll()
         {
 
