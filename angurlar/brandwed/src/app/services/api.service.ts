@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 export class ApiService {
   public url = "https://localhost:7138/api/Products"
   public inventory = "https://localhost:7138/api/OrderDetails"
+  public sale = "https://localhost:7138/api/onSale"
 
 
   constructor(
@@ -18,6 +19,9 @@ export class ApiService {
   }
   getProducts() {
     return this.httpClient.get(this.url+'/products')
+  }
+  getOnSale() {
+    return this.httpClient.get(this.sale)
   }
   createProducts(obj:any) {
       return this.httpClient.post<any>(this.url+'/Insert',obj);

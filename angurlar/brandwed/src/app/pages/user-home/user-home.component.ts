@@ -3,6 +3,8 @@ import { ApiService } from '../../services/api.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductsComponent } from '../products/products.component';
+import { Router } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-user-home',
@@ -10,41 +12,55 @@ import { ProductsComponent } from '../products/products.component';
   imports: [
     FormsModule,
     CommonModule,
-    ProductsComponent
+    ProductsComponent,
+    MatCardModule,
 
           ],
   templateUrl: './user-home.component.html',
   styleUrl: './user-home.component.css'
 })
 export class UserHomeComponent {
-  productObj: any= {
-    "product_Id": 0,
-    "product_Name": "",
-    "productPrice": 0,
-    "product_Quantity": 0,
-    "product_Image": "",
-    "product_Description": "",
-    "product_Category": "",
-    "inventoryId": 0
-  }
-  productList: any [] = [];
 
-  constructor(private apiService:ApiService,){ }
+  productList: any ;
+  saleList: any ;
+  productIdlist:any;
+
+  constructor(private apiService:ApiService, private router:Router){ }
 
 
   ngOnInit(): void {
     // this.getAllInventory();
-    this.getProduct();
+    this. getallsales();
+    this.apiService.getOnSale().subscribe((res)=>{
+      this.saleList=res;
+    });
+    this.getProductbyId();
+    this.apiService.getProducts().subscribe((data)=>{
+      this.productList=data;
+    });
 }
-getProduct(){
-  this.apiService.getProductById(this.productObj).subscribe((res:any)=>{
-    this.productList= res;
-    console.log(res)
+productDetails(id:number){
+  this.apiService.getProductById(id).subscribe((data)=>{
+    this.productIdlist=data;
+  });
+}
+getProductbyId(){
+  // this.apiService.getProductById(this.apiService.id).subscribe((data:any)=>{
+  //   this.productList= data;
 
-      })
+
+  //     })
     }
-    onAdd(item:any){
-      this.productObj = item;
-    }
+    
+getallsales(){
+      this.apiService.getOnSale().subscribe((res:any)=>{
+        this.saleList= res;
+        console.log(res)
+    
+          })
+        }
+    // onAdd(item:any){
+    //   this.productObj = item;
+    // }
 
 }

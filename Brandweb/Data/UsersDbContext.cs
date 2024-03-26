@@ -13,7 +13,8 @@ namespace User.Data
         public DbSet<OrderDetails> orderDetails { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Product> Products { get; set; }
-       // public DbSet<Stock> Stocks { get; set; }
+        public DbSet<onSale>OnSale { get; set; }
+        // public DbSet<Stock> Stocks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,12 +29,23 @@ namespace User.Data
                 .HasForeignKey<Inventory>(p => p.ProductId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-              /*  entity.HasOne(a => a.Stock)
+                entity.HasOne(a => a.onSale)
                .WithOne(p => p.Product)
-               .HasForeignKey<Inventory>(p => p.ProductId)
+               .HasForeignKey<onSale>(p => p.ProductId)
                .OnDelete(DeleteBehavior.NoAction);
-              */
+              
             });
+ /*           modelBuilder.Entity<Product>(entity =>
+            {
+                entity.HasKey(a => a.Product_Id);
+                entity.Property(a => a.Product_Name)
+                .IsRequired();
+                  entity.HasOne(a => a.onSale)
+                 .WithOne(p => p.Product)
+                 .HasForeignKey<onSale>(p => p.ProductId)
+                 .OnDelete(DeleteBehavior.NoAction);
+                
+            });*/
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.HasKey(a => a.Order_Id);
@@ -58,7 +70,17 @@ namespace User.Data
                 entity.Property(a => a.ProductName)
                 .IsRequired();
 
-            }); modelBuilder.Entity<OrderDetails>(entity =>
+
+            });
+            modelBuilder.Entity<onSale>(entity =>
+            {
+                entity.HasKey(a => a.saleId);
+                entity.Property(a => a.ProductName)
+                .IsRequired();
+
+
+            });
+            modelBuilder.Entity<OrderDetails>(entity =>
             {
                 entity.HasKey(a => a.DetailsId);
                 entity.Property(a => a.UnitPrice)

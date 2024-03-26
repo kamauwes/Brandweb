@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using User.Data;
 
 namespace Brandweb.Models.Domains
 {
@@ -15,6 +16,7 @@ namespace Brandweb.Models.Domains
 
         //public Stock Stock { get; set; }
 
+        public onSale onSale { get; set; }
         public Inventory Inventory { get; set; }
         public int InventoryId { get; set; }
 
