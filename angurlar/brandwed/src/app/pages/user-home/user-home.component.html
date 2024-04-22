@@ -1,11 +1,14 @@
 <div class="Onsale-body">
-  <div class="col-3 prod-details" *ngFor="let product of saleList">
+  <div class="col-4 prod-details " *ngFor="let sale of saleList">
       <h2>on Sale:</h2>
-      <img  [src]="product.image" class="i-box float-start" alt="onSale" class="rounded">
-      <h4 class="card-text">:{{product.productName}}</h4>
-      <span class="price-item price-item"> ${{product.productPrice}} </span>
+      <img [src]="getImage(sale)" class="i-box float-start rounded" alt="onSale" >
+      <h4 class="card-text">:{{sale.productName}}</h4>
+      <span class="price-item price-item"> ${{sale.productPrice}} </span>
   </div>
-  <div class="col-3 actions float-end">
+  <!-- <div class="d-flex justify-content-center mt-auto">
+    <a class="btn btn-primary btn-lg" (click)="addToCart(product)">Add to Cart</a>
+</div> -->
+  <!-- <div class="col-3 actions float-end">
       <div class="sizeSelection-box">
         <h2 class="size-title">Size</h2>
    <div class="size-btns ">
@@ -16,70 +19,75 @@
           <button type="button" class="btn btn-light mx-2">XX-Large</button>
    </div>
       <div class="cart-form">
-          <button type="button" class="cart btn btn-light "> Add to Cart </button>
+          <button type="button" class="cart btn btn-light " > Add to Cart </button>
       </div>
    </div>
-  </div>
+  </div> -->
 </div>
 <!--all products-->
 <div class="text">
   <h2>Recomendations:</h2>
 </div>
-<div class="row">
-  <!-- <div class="col-3" *ngFor=" let product of productList " >
-    <div class="card" >
-      <img class="card-img-top" src={{product.product_Image}}  alt="Card image">
+<div class="card-body">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+   <div class="col-md-4" *ngFor=" let product of productList " >
+    <div class="card h-100" >
+      <img  class="card-img-top" [src]="getProdImage(product)"  alt="Card image">
       <div class="card-body">
         <h4 class="card-title">{{product.product_Name}}</h4>
-       
+
         <p class="card-text">Category: {{product.product_Category}}</p>
-     
+
         <h4 class="card-title text-success">{{product.productPrice}}</h4>
-          
-      </div>
-      <div class="cart">
-        <button type="button" class="cart btn btn-light "> Add to Cart </button>
-    </div>
-    </div>
-  </div>
-  <div class="col-3">
-    <div class="card" >
-      <img class="card-img-top" src="/assets/products/image12.jpg" alt="Card image">
-      <div class="card-body">
-        <p class="card-text">HeadWear</p>
-        <a href="#" class="btn btn-primary">See More</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-3">
-    <div class="card" >
-      <img class="card-img-top" src="/assets/products/image14.jpg" alt="Card image">
-      <div class="card-body">
-        <p class="card-text">Casual wear </p>
-        <a href="#" class="btn btn-primary">See More</a>
-      </div>
-    </div>
-  </div> -->
-  <!-- card.component.html -->
-<!-- <div class="cards-container">
-  <mat-card class="new-card" *ngFor="let product of productList">
-    <mat-card-header>
-      <mat-card-title><h3 class="text-success">{{product.product_Name}}</h3></mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src={{product.product_Image}}  alt="Photo of a guy">
-    <mat-card-content>
 
-    </mat-card-content>
-    <p class="card-text">Category: {{product.product_Category}}</p>
-    <mat-card-actions align ="end">
-      <button mat-raised-button class="btn btn-success">${{product.productPrice}}</button>
-      <div class="cart">
-        <button type="button" class="cart btn btn-light "> Add to Cart </button>
+      </div>
+      <div class="d-flex justify-content-center mt-auto">
+        <a class="btn btn-primary btn-lg" (click)="addToCart(product)">Add to Cart</a>
+        <a class="btn btn-success btn-lg" >Buy Now</a>
     </div>
-    </mat-card-actions>
-    
-  </mat-card>
+    </div>
+  </div>
+  <!-- Modal for Cart Notification -->
+<!-- <div class="modal fade" id="cartNotificationModal" tabindex="-1" aria-labelledby="cartNotificationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartNotificationModalLabel">Product Added to Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Your product has been added to the cart.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a class="btn btn-primary" href="/cart">Go to Cart</a>
+      </div>
+    </div>
+  </div>
 </div> -->
-
-
 </div>
+<div class="d-flex justify-content-center mt-auto">
+  <!-- <a class="btn btn-primary btn-lg" onclick="window.location.href='/cart';">Go to Cart </a> -->
+  <a class="btn btn-primary btn-lg"  routerLink="/cart">Go to Cart </a>
+</div>
+</div>  
+<!-- <div class="card-body">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let product of productList">
+      <div class="card">
+        <img class="card-img-top" [src]="getImage(product)" alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title">{{ product.product_Name }}</h4>
+          <p class="card-text">{{ product.product_Description }}</p>
+          <p class="card-text">Category: {{ product.product_Category }}</p>
+          <p class="card-text">Quantity: {{ product.product_Quantity }}</p>
+          <h4 class="card-title text-success">{{ product.productPrice }}</h4>
+          <div class="d-flex justify-content-between align-items-center">
+            <a class="edit btn btn-primary" (click)="onEdit(product)">Edit</a>
+            <a class="delete btn btn-danger" (click)="onDelete(product.product_Id)">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

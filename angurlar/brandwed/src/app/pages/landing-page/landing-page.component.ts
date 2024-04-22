@@ -1,21 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ProductsComponent } from '../products/products.component';
-import { ProductsService } from '../../services/products.service';
-import { Product, Products } from '../../../types';
+import ProductsComponent from '../products/products.component';
 import { ApiService } from '../../services/api.service';
 import { RouterOutlet } from '@angular/router';
+import { UserHomeComponent } from "../user-home/user-home.component";
 
 @Component({
-  selector: 'app-landing-page',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ProductsComponent,
-    RouterOutlet,
-  ],
-  templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.css'
+    selector: 'app-landing-page',
+    standalone: true,
+    templateUrl: './landing-page.component.html',
+    styleUrl: './landing-page.component.css',
+    imports: [
+        CommonModule,
+        ProductsComponent,
+        RouterOutlet,
+        UserHomeComponent
+    ]
 })
 export class LandingPageComponent {
 constructor(

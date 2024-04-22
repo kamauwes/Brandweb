@@ -1,4 +1,5 @@
 <!-- nav bar -->
+
 <header class="wrapper row full-center">
 <!-- <img src="assets\products\headerImage.jpg" alt="header image" class="logo"> -->
   <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -25,18 +26,24 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="/home">Brandweb</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/products">products</a>
+            <a class="nav-link active" routerLink="/products">products</a>
           </li>
-          <li class="nav-item dropdown">
+
+          <li class="nav-item">
+            <div style="font-size: 10px;" routerLink="/cart" class="badge bg-danger" >{{totalItem}}</div>
+            <a class="nav-link active"  routerLink="/cart">cart</a>
+          </li>
+          <li class="nav-item">
+            <div style="font-size: 10px;" routerLink="/cart" class="badge bg-danger" >{{Item}}</div>
+            <a class="nav-link active" routerLink="/payment">payment</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
@@ -46,8 +53,8 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
-          </li>
-       
+          </li> -->
+
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

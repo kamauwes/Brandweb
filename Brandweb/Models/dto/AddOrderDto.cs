@@ -7,5 +7,6 @@
         public string Product_Name { get; set; } = string.Empty;
         public int CustomerId { get; set; }
         public int Order_Id { get; internal set; }
+        public int ProductId { get; set; }
     }
 }

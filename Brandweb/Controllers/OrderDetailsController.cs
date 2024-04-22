@@ -1,4 +1,4 @@
-﻿using Brandweb.Models.Domains;
+﻿/*using Brandweb.Models.Domains;
 using Brandweb.Models.dto;
 using Brandweb.Models.Dto;
 using Microsoft.AspNetCore.Cors;
@@ -76,12 +76,12 @@ namespace Brandweb.Controllers
             }
             return Ok(product);
         }
-       /* [HttpGet]
+       *//* [HttpGet]
         public IActionResult GetAl()
         {
             var products = usersDbContext.orderDetails.ToList();
             return Ok(products);
-        }*/
+        }*//*
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -97,13 +97,13 @@ namespace Brandweb.Controllers
                 UnitPrice = item.UnitPrice,
                 ProductId=item.ProductId,
 
-                /*
+                *//*
                 InventoryId = item.InventoryId,
                 ProductName = item.Product.Product_Name, // Access product properties
                 Quantity = item.Product.Product_Quantity,
                 ProductPrice = item.Product.ProductPrice, // Access product properties
                 Size = item.Size,
-                ProductId = item.ProductId*/
+                ProductId = item.ProductId*//*
             }).ToList();
 
             return Ok(detailsDtoList);
@@ -169,3 +169,4 @@ namespace Brandweb.Controllers
        
     }
 }
+*/

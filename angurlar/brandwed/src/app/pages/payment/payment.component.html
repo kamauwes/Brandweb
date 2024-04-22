@@ -1,0 +1,50 @@
+<p>payment works!</p>
+<div class="container">
+  <div class="card-table">
+    <div class="cart-product">
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th>Product Num</th>
+            <th>Product Image</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Product Price</th>
+            <th>Product Quantity</th>
+            <th>Total</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of this.cart.cartItemList;let i = index ">
+             <!-- <div *ngFor="let product of productsList; let i = index"> -->
+            <td>{{i+1}}</td>
+            <td [width]="200" ><img width="100%" [src]="getImage(product)"> </td>
+            <td><strong>{{product.product_Name}}</strong></td>
+            <td>{{product.product_Description}}</td>
+            <td>{{product.productPrice}}</td>
+            <!-- <td>{{product.product_Quantity}}</td> -->
+            <td>
+              <!-- <button (click)="decreaseQuantity(product)" class="btn btn-secondary">-</button> -->
+              {{ product.product_Quantity }}
+              <!-- <button (click)="increaseQuantity(product)" class="btn btn-secondary">+</button> -->
+            </td>
+
+            <td>{{product.productPrice * product.product_Quantity}}</td>
+            <td>
+              <!-- <button (click)="removeCartitem(product)" class="btn btn-danger">remove</button> -->
+            </td>
+             <!-- </div> -->
+          </tr>
+          <tr>
+            <td colspan="4"></td>
+            <td><button class="btn btn-danger" (click)="emptyCart()">cancel</button></td>
+
+            <td><a class="btn btn-success"  routerLink="/pay">proceed to pay</a></td>
+            <td class="text-success"><strong> Total:${{grandTotal}} </strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,10 @@
-﻿using Brandweb.Models.Domains;
+﻿using brand.Data;
+using Brandweb.Models.Domains;
 using Brandweb.Models.dto;
 using Brandweb.Models.Dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using User.Data;
 
 namespace Brandweb.Controllers
 {
@@ -12,10 +12,10 @@ namespace Brandweb.Controllers
     [ApiController]
     public class InventoryController : ControllerBase
     {
-       private readonly UsersDbContext usersDbContext;
+       private readonly brandDbContext usersDbContext;
         private readonly IConfiguration configuration;
 
-        public InventoryController(UsersDbContext usersDbContext, IConfiguration configuration)
+        public InventoryController(brandDbContext usersDbContext, IConfiguration configuration)
         {
             this.usersDbContext = usersDbContext;
             this.configuration = configuration;

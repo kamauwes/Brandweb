@@ -1,0 +1,81 @@
+.Onsale-body{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  }
+  .actions{
+    position: relative;
+    margin-top: 0;
+    margin-left: 160px;
+    margin-right: auto;
+    position: static;
+    width: 50%;
+    height: 400px;
+    border: 2px solid cornsilk;
+    border-radius: 4px;
+  }
+  .size-btns{
+    display: flex;
+    flex-wrap: wrap ;
+    column-gap: 5px;
+    row-gap: 5px;
+    justify-content: center;
+
+  }
+  .sizeSelection-box{
+    text-align: center;
+  }
+.cart{
+  width:70%
+
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjust as needed */
+}
+.cart-form{
+  position: relative;
+  margin-left: 20%;
+  margin-top: 180px;
+}
+.preview {
+  max-width: 200px;
+}
+.card{
+  height: 60vh;
+  margin: 25px;
+  padding: 25px;
+}
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+.card-table{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: none;
+  word-wrap: break-word;
+  background-color: aliceblue;
+  background-clip: border-box;
+  border: 1px solid rgba(red, green, blue, alpha);
+  border-radius: -25rem;
+}
+/* .center .btn{
+  margin-top: 14px !important;
+  padding: 12px 72px;
+  border-radius: 3px;
+
+}
+.footer{
+  display: flex;
+  flex-direction: row;
+
+
+}.btn{
+  margin: 20px;
+} */

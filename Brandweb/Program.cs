@@ -1,10 +1,11 @@
+using brand.Data;
 using Microsoft.EntityFrameworkCore;
-using User.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<UsersDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("CustomerConnection")));
+builder.Services.AddDbContext<brandDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BrandwebConnection")));
 
 
 builder.Services.AddControllers();

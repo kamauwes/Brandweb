@@ -1,0 +1,100 @@
+<p>login works!</p>
+
+<div class="container">
+
+<div class="card-body">
+<div class="card center">
+  <ng-container *ngIf="true">
+  <form class="login-form" [formGroup]="form">
+      <h1 class="card-title">Login</h1>
+      <div class="input_box">
+          <input type="text" required formControlName="userName">
+          <label >UserName</label>
+          <!-- <span class="material-symbols-outlined">
+              mail
+              </span> -->
+      </div>
+      <div class="input_box">
+          <input type="text" required formControlName="email">
+          <label >Email</label>
+          <!-- <span class="material-symbols-outlined">
+              mail
+              </span> -->
+      </div>
+      <div class="input_box">
+          <input type="password" required formControlName="password" >
+          <label>Password</label>
+
+      </div>
+      <div class="CheckBox">
+          <span>
+          <input type="checkbox" id="Login-checkbox">
+          <label for="Remember-checkbox">Remember me?</label>
+          </span>
+          <h5>Forgot Password?</h5>
+      </div>
+      <button type="submit" class="submit-btn"(click)="Onlogin()">Login</button>
+      <h5 class="Signup-btn">Don't have an account? Signup</h5>
+
+  </form>
+</ng-container>
+<ng-container *ngIf="false">
+    <form class="Signup-form" [formGroup]="form">
+          <h1 class="card-title">Sign up</h1>
+          <div class="input_box">
+              <input type="text" required formControlName="userName">
+              <label >User Name</label>
+              <!-- <span class="material-symbols-outlined">
+                  person
+                  </span> -->
+          </div>
+          <div class="input_box">
+              <input type="text" required formControlName="email">
+              <label >Email</label>
+              <!-- <span class="material-symbols-outlined">
+                  mail
+                  </span> -->
+          </div>
+          <div class="input_box">
+              <input type="password" required formControlName="password">
+              <label >Password</label>
+              <!-- <span class="material-symbols-outlined">
+                  lock
+                  </span> -->
+          </div>
+          <!-- <div class="input_box">
+              <input type="password" required formControlName="password">
+              <label >Confirm-Password</label>
+              <span class="material-symbols-outlined">
+                  lock
+                  </span>
+          </div> -->
+          <div class="CheckBox">
+              <input type="checkbox" id="Signup-checkbox">
+              <label for="Signup-checkbox">Accept Terms & Conditions?</label>
+          </div>
+          <button type="submit" class="submit-btn" (click)="OnSignup()">Signup</button>
+          <h5 class="Login-btn">All ready have an account? Login</h5>
+      </form>
+</ng-container>
+
+  </div>
+</div>
+      <!-- <ng-container >
+        <div class="container">
+          <div class="card">
+            <h5 class="card-title">My cart</h5>
+          </div>
+            <div class="center">
+                <img [src]=""  alt="cart Image">
+                <div class="card-body">
+                  <h4 >cart is empty!</h4>
+                  <h6 >add items!</h6>
+                  <button class="btn btn-danger btn-sm"onclick="window.location.href='/home';">shop now</button>
+                 </div>
+              </div>
+            </div>
+
+      </ng-container> -->
+
+</div>

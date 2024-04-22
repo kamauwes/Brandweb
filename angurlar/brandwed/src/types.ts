@@ -18,19 +18,19 @@ export interface Options{
 }
 export interface Products{
 
-    items: Product;
+    // items: Product;
     total: number;
-  
-}
-export interface Product{
-  product_id?:number;
-  product_Name:string;
-  productprice: string;
-  product_Description:string;
-  product_Category:string;
-  product_Quantity:string;   
-  image:string; 
 
 }
+// export interface Product{
+//   product_id?:number;
+//   product_Name:string;
+//   productprice: string;
+//   product_Description:string;
+//   product_Category:string;
+//   product_Quantity:string;
+//   image:string;
+
+// }
 
 

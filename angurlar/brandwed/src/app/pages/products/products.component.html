@@ -12,11 +12,11 @@
           </div>
         </div>
       </div>
-      <div class="card-body">
+      <!-- <div class="card-body">
           <div class="row">
             <div class="col-3" *ngFor=" let product of productList ">
               <div class="card" >
-                <img class="card-img-top" src={{product.product_Image}}  alt="Card image">
+                <img class="card-img-top" [src]="getImage(product)" alt="Card image">
                 <div class="card-body">
                   <h4 class="card-title">{{product.product_Name}}</h4>
                   <p class="card-text">{{product.product_Description}}</p>
@@ -24,12 +24,33 @@
                   <p class="card-text">Quantity: {{product.product_Quantity}}</p>
                   <h4 class="card-title text-success">{{product.productPrice}}</h4>
                   <a  class="edit  btn btn-primary" (click)=" onEdit(product) "> edit </a>
-                  <a  class="delete btn btn-danger mx-2"  (click)="onDelete(product.product_Id)"> delete  </a>
+                  <a  class="delete btn btn-danger mx-2"  (click)="onDelete(product.product_Id)"> del  </a>
                 </div>
               </div>
             </div>
           </div>
+      </div> -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let product of productList">
+            <div class="card">
+              <img class="card-img-top" [src]="getImage(product)" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">{{ product.product_Name }}</h4>
+                <p class="card-text">{{ product.product_Description }}</p>
+                <p class="card-text">Category: {{ product.product_Category }}</p>
+                <p class="card-text">Quantity: {{ product.product_Quantity }}</p>
+                <h4 class="card-title text-success">{{ product.productPrice }}</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                  <a class="edit btn btn-primary" (click)="onEdit(product)">Edit</a>
+                  <a class="delete btn btn-danger" (click)="onDelete(product.product_Id)">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
   <div class="col-4" *ngIf="isSidePanelvisible">
@@ -50,7 +71,7 @@
         <div class="row">
           <div class="col-6">
             <label for="">Item Name</label>
-            <input type="text" formControlName="product_Name" class=" form-control ">
+            <input type="text" formControlName="ImageName" class= "form-control ">
           </div>
           <div class="col-6">
             <label for="">Price</label>
@@ -61,9 +82,21 @@
             <input type="text" formControlName="product_Quantity" class="form-control">
           </div>
           <div class="row">
-          <div class="col-6">
-            <label for="">image url</label>
-            <input type="text" formControlName="product_Image" class="form-control">
+          <div class="col-7">
+            <label >image url</label>
+            <input type="file" accept="image/*" (change)="selectFile($event)"  class="form-control">
+          </div>
+          <!-- <div class="col-4">
+            <button
+              class="btn btn-success btn-sm float-right"
+              [disabled]="!currentFile"
+              (click)="upload()"
+            >
+              Upload
+            </button>
+          </div> -->
+          <div>
+            <img [src]="preview" class="preview" />
           </div>
         </div>
           <div class="row">
@@ -89,10 +122,12 @@
             <button class="btn btn-success">Reset</button>
            </div>
             <div class="col-6 button">
-              <button class="btn btn-success" *ngIf="productObj.product_Id ==0" (click)="save()">Add Products</button>
+              <button class="btn btn-success" *ngIf="productObj.product_Id ==0" (click)="saveAndUpload()">Add Products</button>
               <button class="btn btn-success" *ngIf="productObj.product_Id !==0" (click)="update()">Upadate Products</button>
                </div>
+
     </div>
   </form>
+
   </div>
 </div>

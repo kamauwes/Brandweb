@@ -1,10 +1,12 @@
-﻿using Brandweb.Models.Domains;
+﻿using brand.Data;
+using Brandweb.Models.Domains;
 using Brandweb.Models.Dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
-using User.Data;
+
+using User.Models.Dto;
 
 namespace Brandweb.Controllers
 {
@@ -12,9 +14,9 @@ namespace Brandweb.Controllers
     [ApiController]
     public class UserLoginController : ControllerBase
     {
-        private readonly UsersDbContext _context;
+        private readonly brandDbContext _context;
 
-        public UserLoginController(UsersDbContext dbcontext)
+        public UserLoginController(brandDbContext dbcontext)
         {
             _context = dbcontext;
         }
@@ -25,7 +27,7 @@ namespace Brandweb.Controllers
             {
                 return BadRequest(ModelState);
             }
-            if (_context.Customers.Any(u => u.Email == addUsersDto.Email))
+            if (_context.user.Any(u => u.Email == addUsersDto.Email))
             {
                 return BadRequest("User Exists Already");
             }
@@ -45,7 +47,7 @@ namespace Brandweb.Controllers
                 VerificationToken = CreateRandomToken()
             };
 
-            _context.Customers.Add(clientPrivacy);
+            _context.user.Add(clientPrivacy);
             await _context.SaveChangesAsync();
 
             /* var clientDto = new ClientDto
@@ -64,7 +66,7 @@ namespace Brandweb.Controllers
         public async Task<IActionResult> Login(UserLogin request)
         {
 
-            var use = await _context.Customers.FirstOrDefaultAsync(c => c.Email == request.Email);
+            var use = await _context.user.FirstOrDefaultAsync(c => c.Email == request.Email);
             if (use == null)
             {
                 return BadRequest("User Not Found");
@@ -76,6 +78,24 @@ namespace Brandweb.Controllers
            
             return Ok($"Welcome Back, {use.UserName} ,{use.Email} :");
 
+        }
+        [HttpGet("getAllUsers")]
+        public IActionResult GetAllUsers()
+        {
+            var users = _context.user.ToList();
+            var userDtos = new List<UsersDto>();
+
+            foreach (var user in users)
+            {
+                userDtos.Add(new UsersDto
+                {
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    Id=user.Id,
+                });
+            }
+
+            return Ok(userDtos);
         }
         /* [HttpPost("Verify")]
          public async Task<IActionResult> Verify(string token)

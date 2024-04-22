@@ -3,8 +3,6 @@
   flex-direction: row;
   width: 100%;
   }
-  .prod-details{
-  }
   .actions{
     position: relative;
     margin-top: 0;
@@ -22,17 +20,44 @@
     column-gap: 5px;
     row-gap: 5px;
     justify-content: center;
-   
+
   }
   .sizeSelection-box{
     text-align: center;
   }
 .cart{
   width:70%
-  
+
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjust as needed */
 }
 .cart-form{
   position: relative;
   margin-left: 20%;
-  margin-top: 180px; 
+  margin-top: 180px;
+}
+.preview {
+  max-width: 200px;
+}
+
+.card-img-top {
+  transition: transform 0.6s ease; /* Smooth transition effect */
+  height: 100%;
+}
+
+
+.card:hover .card-img-top {
+
+  transform: scale(0.98); /* Scale up the image on hover */
+}
+.i-box{
+  transition: transform 0.3s ease;
+
+}
+.i-box:hover {
+  transform: scale(1.1);
+
 }

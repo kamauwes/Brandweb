@@ -1,1 +1,99 @@
-<p>cart works!</p>
+<!-- <h2>My Cart</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let cart of cartList">
+      <div class="card mb-4">
+        <img [src]="getImage(cart)" class="card-img-top" alt="Product Image">
+        <div class="card-body">
+          <h5 class="card-title">{{ cart.product_Name }}</h5>
+          <p class="card-text">Quantity: {{ cart.product_Quantity }}</p>
+          <p class="card-text">Price: ${{ cart.productPrice }}</p>
+          <button class="btn btn-danger btn-sm" (click)="removeFromCart(cart.order_Id)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- My Cart -->
+<ng-container *ngIf="products.length !==0">
+<div class="container">
+  <div class="card-table">
+    <div class="cart-product">
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th>Product Num</th>
+            <th>Product Image</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Product Price</th>
+            <th>Product Quantity</th>
+            <th>Total</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products; let i = index">
+            <td>{{i+1}}</td>
+            <td [width]="200" ><img width="100%" [src]="getImage(product)"></td>
+            <td><strong>{{product.product_Name}}</strong></td>
+            <td>{{product.product_Description}}</td>
+            <td>{{product.productPrice}}</td>
+            <!-- <td>{{product.product_Quantity}}</td> -->
+            <td>
+              <button (click)="decreaseQuantity(product)" class="btn btn-secondary">-</button>
+              {{ product.product_Quantity }}
+              <button (click)="increaseQuantity(product)" class="btn btn-secondary">+</button>
+            </td>
+
+            <td>{{ product.productPrice * product.product_Quantity }}</td>
+            <td>
+              <button (click)="removeCartitem(product)" class="btn btn-danger">remove</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4"></td>
+            <td><button class="btn btn-danger" (click)="emptyCart()">Empty Cart</button></td>
+            <td> <a class="btn btn-success"  routerLink="/home">Continue to Shop</a></td>
+            <td> <a class="btn btn-success"  routerLink="/payment" (click)="OnChecker(products)">Checkout</a></td>
+            <td><strong>Total:${{grandTotal}} </strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</ng-container>
+<ng-container *ngIf="products.length ==0">
+  <div class="container">
+    <div class="card">
+      <h5 class="card-title">My cart</h5>
+    </div>
+      <div class="center">
+          <img [src]=""  alt="cart Image">
+          <div class="card-body">
+            <h4 >cart is empty!</h4>
+            <h6 >add items!</h6>
+            <button class="btn btn-danger btn-sm"onclick="window.location.href='/home';">shop now</button>
+           </div>
+        </div>
+      </div>
+</ng-container>
+
+
+  <!-- <div class="col-3 actions float-end">
+      <div class="sizeSelection-box">
+        <h2 class="size-title">Size</h2>
+   <div class="size-btns ">
+          <button type="button" class="btn btn-light mx-2" >Small</button>
+          <button type="button" class="btn btn-light " >Medium</button>
+          <button type="button" class="btn btn-light mx-2">Large</button>
+          <button type="button" class="btn btn-light ">X-Large</button>
+          <button type="button" class="btn btn-light mx-2">XX-Large</button>
+   </div>
+      <div class="cart-form">
+          <button type="button" class="cart btn btn-light " > Add to Cart </button>
+      </div>
+   </div>
+  </div> -->
+

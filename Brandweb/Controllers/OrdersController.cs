@@ -1,47 +1,85 @@
-﻿using Brandweb.Models.Domains;
+﻿using brand.Data;
+using Brandweb.Models.Domains;
 using Brandweb.Models.dto;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using User.Data;
+
 
 namespace Brandweb.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllowSpecificOrigin")]
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        private readonly UsersDbContext usersDbContext;
+        private readonly brandDbContext usersDbContext;
         private readonly IConfiguration configuration;
 
-        public OrdersController(UsersDbContext usersDbContext, IConfiguration configuration)
+        public OrdersController(brandDbContext usersDbContext, IConfiguration configuration)
         {
             this.usersDbContext = usersDbContext;
             this.configuration = configuration;
         }
         //POST:
         [HttpPost("Insert")]
+        public async Task<IActionResult> Insert([FromBody] List <AddOrderDto> addOrdersDtoList)
+        {
+            if (!ModelState.IsValid || addOrdersDtoList == null || !addOrdersDtoList.Any())
+            {
+                return BadRequest("Invalid data provided.");
+            }
+
+            foreach (var addOrdersDto in addOrdersDtoList)
+            {
+                var client = await usersDbContext.Orders.FirstOrDefaultAsync(c => c.Order_Id == addOrdersDto.Order_Id);
+                if (client != null)
+                {
+                    return BadRequest("Order already exists");
+                }
+
+                var OrderDomainModel = new Order
+                {
+                    CustomerId = addOrdersDto.CustomerId,
+                    ProductId = addOrdersDto.ProductId,
+                    Product_Name = addOrdersDto.Product_Name,
+                    Product_Quantity = addOrdersDto.Product_Quantity,
+                };
+
+                usersDbContext.Orders.Add(OrderDomainModel);
+           } 
+            await usersDbContext.SaveChangesAsync();
+
+          
+
+
+            return Ok("Orders placed successfully.");
+        }
+
+       /* [HttpPost("Insert")]
         public async Task<IActionResult> Insert([FromBody] AddOrderDto addOrdersDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var client = await usersDbContext.Orders.FirstOrDefaultAsync(c => c.Order_Id== addOrdersDto.Order_Id);
+            var client = await usersDbContext.Orders.FirstOrDefaultAsync(c => c.Order_Id == addOrdersDto.Order_Id);
             if (client != null)
             {
                 return BadRequest("Order already exists");
             }
-        
+
 
             var OrderDomainModel = new Order
             {
-                
-                CustomerId=addOrdersDto.CustomerId,
-                Product_Name = addOrdersDto.Product_Name,              
+
+                CustomerId = addOrdersDto.CustomerId,
+                ProductId = addOrdersDto.ProductId,
+                Product_Name = addOrdersDto.Product_Name,
                 Product_Quantity = addOrdersDto.Product_Quantity,
-                
-                
+
+
             };
 
             usersDbContext.Orders.Add(OrderDomainModel);
@@ -49,15 +87,15 @@ namespace Brandweb.Controllers
 
             var orderDto = new Order
             {
-               Order_Id = addOrdersDto.Order_Id,
+                Order_Id = addOrdersDto.Order_Id,
                 Product_Name = OrderDomainModel.Product_Name,
-                CustomerId=OrderDomainModel.CustomerId,             
+                CustomerId = OrderDomainModel.CustomerId,
                 Product_Quantity = OrderDomainModel.Product_Quantity,
-            
+
             };
 
             return Ok($"Order placed,{orderDto.Product_Name}");
-        }
+        }*/
         /*[HttpGet]
         public IActionResult GetAll()
         {
@@ -83,8 +121,9 @@ namespace Brandweb.Controllers
         public IActionResult GetAll()
         {
             var OrderItems = usersDbContext.Orders
-                .Include(i => i.Customer) // Include the associated product
+                .Include(i => i.Customer) 
                 .ToList();
+
 
             // Optionally, you can create DTOs to shape the data being returned to the client
             var OrdersDtoList = OrderItems.Select(item => new OrderDto

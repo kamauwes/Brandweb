@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using User.Data;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Brandweb.Models.Domains
 {
@@ -10,6 +10,8 @@ namespace Brandweb.Models.Domains
         public string? Product_Name { get; set; }
         public double ProductPrice { get; set; }
         public int Product_Quantity { get; set; }
+     //   [NotMapped]
+   //     public IFormFile file { get; set; }
         public string? Product_Image { get; set; }
         public string? Product_Description { get; set; }
         public string? Product_Category { get; set; }
@@ -18,9 +20,12 @@ namespace Brandweb.Models.Domains
 
         public onSale onSale { get; set; }
         public Inventory Inventory { get; set; }
+       
         public int InventoryId { get; set; }
+        public FileUpload fileUpload { get; set; }
+        public int ImgId { get; set; }
 
-        public ICollection<OrderDetails> OrderDetails { get; set; }
+      /*  public ICollection<OrderDetails> OrderDetails { get; set; }*/
 
     }
 }
